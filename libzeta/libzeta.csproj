@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15B580B8-0746-4213-88EF-DF0F58236D78}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>libzeta</RootNamespace>
+    <AssemblyName>libzeta</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="OpenTK">
+      <HintPath>..\..\nginz\opentk-build\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="AssimpNet">
+      <HintPath>..\..\nginz\bin\Release\AssimpNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Interop\StbImage.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Extensions\Logging.cs" />
+    <Compile Include="ContentManager.cs" />
+    <Compile Include="Interfaces\IContentProvider.cs" />
+    <Compile Include="GameTime.cs" />
+    <Compile Include="GameConfiguration.cs" />
+    <Compile Include="Enumerations\VsyncMode.cs" />
+    <Compile Include="Enumerations\LoggingLevel.cs" />
+    <Compile Include="Enumerations\InterpolationMode.cs" />
+    <Compile Include="Interfaces\IBuffer.cs" />
+    <Compile Include="Interfaces\IBindable.cs" />
+    <Compile Include="Interfaces\IPointTo.cs" />
+    <Compile Include="Interfaces\IProjectable.cs" />
+    <Compile Include="Enumerations\ProjectionType.cs" />
+    <Compile Include="Graphics\Cameras\Camera.cs" />
+    <Compile Include="Graphics\2D\SpriteBatch.cs" />
+    <Compile Include="Graphics\2D\Texture2D.cs" />
+    <Compile Include="Graphics\Cameras\OrthographicCamera.cs" />
+    <Compile Include="Graphics\Cameras\ComplicatedCamera.cs" />
+    <Compile Include="Graphics\2D\TextureConfiguration.cs" />
+    <Compile Include="Graphics\Cameras\CameraHelper.cs" />
+    <Compile Include="TypeSwitch.cs" />
+    <Compile Include="GameSynchronizer.cs" />
+    <Compile Include="Graphics\Cameras\PerspectiveCamera.cs" />
+    <Compile Include="Graphics\Cameras\FirstPersonCamera.cs" />
+    <Compile Include="Shading\BasicShader.cs" />
+    <Compile Include="Shading\ComputeShader.cs" />
+    <Compile Include="Shading\FragmentShader.cs" />
+    <Compile Include="Shading\GeometryShader.cs" />
+    <Compile Include="Shading\Shader.cs" />
+    <Compile Include="Shading\ShaderProgram.cs" />
+    <Compile Include="Shading\ShaderProgramHandle.cs" />
+    <Compile Include="Shading\VertexShader.cs" />
+    <Compile Include="OpenGL\GLBuffer.cs" />
+    <Compile Include="OpenGL\GLBufferDynamic.cs" />
+    <Compile Include="OpenGL\GLBufferSettings.cs" />
+    <Compile Include="Math\Point2.cs" />
+    <Compile Include="Math\Rectangle.cs" />
+    <Compile Include="Math\Resolution.cs" />
+    <Compile Include="Math\Scale.cs" />
+    <Compile Include="Math\Vertex2.cs" />
+    <Compile Include="Graphics\Cameras\ScreenShake.cs" />
+    <Compile Include="GameComponent.cs" />
+    <Compile Include="Input\Mouse.cs" />
+    <Compile Include="Input\Keyboard.cs" />
+    <Compile Include="Input\KeyState.cs" />
+    <Compile Include="Randomizer.cs" />
+    <Compile Include="Graphics\3D\ModelLoader.cs" />
+    <Compile Include="Graphics\3D\Mesh.cs" />
+    <Compile Include="Graphics\3D\Material.cs" />
+    <Compile Include="Graphics\3D\Model.cs" />
+    <Compile Include="ShaderCollection.cs" />
+    <Compile Include="Graphics\3D\RenderingPipeline.cs" />
+    <Compile Include="Graphics\3D\DirectionalLight.cs" />
+    <Compile Include="Graphics\3D\BasicLight.cs" />
+    <Compile Include="Graphics\3D\MultiModel.cs" />
+    <Compile Include="Content.cs" />
+    <Compile Include="ShaderBuilder\ShaderBuilder.cs" />
+    <Compile Include="ShaderBuilder\ShaderBuilder.Emit.cs" />
+    <Compile Include="ShaderBuilder\ShaderBuilder.Types.cs" />
+    <Compile Include="ShaderBuilder\ShaderBuilder.Functions.cs" />
+    <Compile Include="ShaderBuilder\GLSLVersion.cs" />
+    <Compile Include="OpenGL\Framebuffer.cs" />
+    <Compile Include="OpenGL\Viewport.cs" />
+    <Compile Include="Graphics\2D\SpriteSheet.cs" />
+    <Compile Include="Graphics\2D\Sprite.cs" />
+    <Compile Include="Graphics\2D\Particle.cs" />
+    <Compile Include="Math\MathF.cs" />
+    <Compile Include="Graphics\2D\ParticleModifier.cs" />
+    <Compile Include="Graphics\2D\ParticleEmitter.cs" />
+    <Compile Include="Graphics\2D\Modifiers\ColorModifier.cs" />
+    <Compile Include="Graphics\2D\Modifiers\TextureModifier.cs" />
+    <Compile Include="Graphics\2D\Modifiers\DirectionModifier.cs" />
+    <Compile Include="Graphics\2D\Modifiers\SpreadModifier.cs" />
+    <Compile Include="Graphics\2D\Modifiers\AlphaModifier.cs" />
+    <Compile Include="Graphics\2D\Modifiers\LifetimeModifier.cs" />
+    <Compile Include="Graphics\2D\Modifiers\BuiltinModifierEnums.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interop\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Enumerations\" />
+    <Folder Include="Graphics\" />
+    <Folder Include="Graphics\2D\" />
+    <Folder Include="Graphics\3D\" />
+    <Folder Include="Graphics\Cameras\" />
+    <Folder Include="Shading\" />
+    <Folder Include="OpenGL\" />
+    <Folder Include="Math\" />
+    <Folder Include="Input\" />
+    <Folder Include="ShaderBuilder\" />
+    <Folder Include="Graphics\2D\Modifiers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libzeta.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
