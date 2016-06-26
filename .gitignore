@@ -1,11 +1,21 @@
-#Autosave files
+# autosave files
 *~
+
+# allow directories
+!*/
 
 #build
 [Oo]bj/
-[Bb]in/
+[Bb]in/*
 packages/
 TestResults/
+
+# content
+!bin/content
+
+# vs stuff
+*.psess
+*.vspx
 
 # globs
 Makefile.in
@@ -28,13 +38,13 @@ tarballs/
 test-results/
 Thumbs.db
 
-#Mac bundle stuff
+# mac bundle stuff
 *.dmg
 *.app
 
-#resharper
+# resharper
 *_Resharper.*
 *.Resharper
 
-#dotCover
+# dotCover
 *.dotCover
