@@ -116,6 +116,7 @@
     <Compile Include="Graphics\2D\Modifiers\AlphaModifier.cs" />
     <Compile Include="Graphics\2D\Modifiers\LifetimeModifier.cs" />
     <Compile Include="Graphics\2D\Modifiers\BuiltinModifierEnums.cs" />
+    <Compile Include="OpenGL\GLIDCache.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Interop\" />

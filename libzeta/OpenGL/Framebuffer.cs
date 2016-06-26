@@ -9,6 +9,11 @@ namespace libzeta {
     public class FrameBuffer : IBindable {
 
         /// <summary>
+        /// The identifier cache.
+        /// </summary>
+        readonly static GLIDCache idCache;
+
+        /// <summary>
         /// The buffer identifier.
         /// </summary>
         readonly int bufferId;
@@ -109,6 +114,16 @@ namespace libzeta {
         }
 
         /// <summary>
+        /// Use the frame buffer.
+        /// </summary>
+        /// <param name="action">Action.</param>
+        public void Use (Action action) {
+            Bind ();
+            action ();
+            Unbind ();
+        }
+
+        /// <summary>
         /// Bind the frame buffer.
         /// </summary>
         public void Bind () {
@@ -128,6 +143,9 @@ namespace libzeta {
         /// <param name="framebuffer">Frame buffer.</param>
         public static void Bind (FrameBuffer framebuffer) {
 
+            // Push the buffer id
+            idCache.Push (framebuffer.bufferId);
+
             // Bind the frame buffer
             GL.BindFramebuffer (framebuffer.target, framebuffer.bufferId);
 
@@ -141,8 +159,11 @@ namespace libzeta {
         /// <param name="framebuffer">Frame buffer.</param>
         public static void Unbind (FrameBuffer framebuffer) {
 
-            // Unbind the frame buffer
-            GL.BindFramebuffer (framebuffer.target, 0);
+            // Pop the current id
+            idCache.Pop ();
+
+            // Bind the previous frame buffer
+            GL.BindFramebuffer (framebuffer.target, idCache.Pop ());
         }
     }
 }
