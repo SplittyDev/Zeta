@@ -11,7 +11,7 @@ namespace libzeta {
         /// <summary>
         /// The identifier cache.
         /// </summary>
-        readonly static GLIDCache idCache;
+        readonly static GLIDCache idCache = new GLIDCache ();
 
         /// <summary>
         /// The buffer identifier.
